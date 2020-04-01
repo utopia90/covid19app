@@ -1,3 +1,90 @@
 .hide {
     display: none;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(236, 255, 236);
+    font-family: sans-serif;
+}
+
+#title {
+    margin-top: 10vh;
+    font-size: 100px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#virus-img {
+    width: 100px;
+    height: 90px;
+}
+
+#buttons {
+    margin: 30px 0px 20px 0px;
+}
+
+.btn {
+    padding: 15px 3px 40px 3px;
+    margin: 0px 8px 0px 8px;
+    border-radius: 10px;
+    width: 200px;
+    height: 20px;
+    background-color: rgb(175, 255, 149);
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: rgb(46, 182, 0);
+}
+
+.countryClass {
+    margin-top: 70px;
+    font-size: 25px;
+}
+ #search-input {
+     width: 300px;
+     height: 35px;
+     border-radius: 15px;
+     text-align: left;
+     padding-left: 15px;
+     font-size: 20px;
+     border: 1px solid rgb(165, 165, 165);
+     background-color: white;
+ }
+
+ #searchBtn {
+    width: 100px;
+    height: 35px;
+    font-size: 18px;
+    background-color: rgb(189, 98, 255);
+    color: white;
+    border-radius: 35px;
+    cursor: pointer;
+ }
+
+ #searchBtn:hover {
+    background-color: rgb(149, 0, 255);
+ }
+
+ .api-info {
+     margin-top: 100px;
+     font-size: 25px;
+ }
+
+ #country-name {
+     margin-bottom: 40px;
+ }
+
+ .gap {
+     margin-top: 5px;
+ }
+
+ .selected {
+    background-color: rgb(46, 182, 0);
+}

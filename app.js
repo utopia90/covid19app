@@ -1,33 +1,43 @@
 const testBtn = document.getElementById("test");
-const stadisticsBtn = document.getElementById("stadistics");
+const statisticsBtn = document.getElementById("statistics");
 const synptomsBtn = document.getElementById("synptoms");
 const contactsBtn = document.getElementById("usefulcontacts");
 const showInfo = document.getElementById("show-info");
+const description = document.getElementById('description');
 
-
-
-stadisticsBtn.addEventListener('click', ()=>{
-    showstadistics();
+statisticsBtn.addEventListener('click', () => {
+    showStatistics();
+    statisticsBtn.classList.add('selected');
 })
 
-function showstadistics(){
-    let countryInput = document.createElement("div");
-    showInfo.classList.remove("hide");
-    countryInput.innerHTML = `
-    From which country do you want to know statistics? <input id ="country" type="text">
-    <button id="stadisticsBtn"> Search </button>` 
-    countryInput.setAttribute("class", "countryClass")
-    showInfo.appendChild(countryInput);
+function showStatistics() {
+    if (showInfo.children.length <= 0) {
+        description.classList.add('hide');
+        let countryInput = document.createElement("div");
+        showInfo.classList.remove("hide");
+        countryInput.innerHTML = `
+        Search Stats
+        <input id ="search-input" type="text" placeholder='Country Name...'>
+        <button id="searchBtn"> Search </button>
+        ` 
+        countryInput.setAttribute("class", "countryClass")
+        showInfo.appendChild(countryInput);
  
-    const activateBtn = document.getElementById("stadisticsBtn");
-    activateBtn.addEventListener("click", () => {
-        countryInput.classList.add("hide");
-        displayData()
+        let activateBtn = document.getElementById("searchBtn");
+        activateBtn.addEventListener("click", () => {
+            countryInput.classList.add("hide");
+            displayData();
+        });
+        document.getElementById('search-input').addEventListener("keypress", e => {
+            if (e.key === "Enter") {
+                countryInput.classList.add("hide");
+                displayData();
+            }
+        });
+    }
 
-    })
-
-    function displayData() {
-    fetch(`https://covid-193.p.rapidapi.com/statistics?country=${country.value}`, {
+function displayData() {
+    fetch(`https://covid-193.p.rapidapi.com/statistics?country=${document.getElementById('search-input').value}`, {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "covid-193.p.rapidapi.com",
@@ -36,13 +46,16 @@ function showstadistics(){
 })
     .then(res => res.json())
     .then(data => {
-        let displayStadistics = document.createElement("div")
-        displayStadistics.innerHTML = ` <h1> Actual Stadistics Of Covid-19 for ${country.value}</h1><br>
-                                         <div id="cases">Total Cases: ${data.response[0].cases.total}</div><br>
-                                         <div id="new-cases"> Today New Cases:  ${data.response[0].cases.new} </div>
-                                         <div id="deaths"> Total Deaths: ${data.response[0].deaths.total}</div><br>
-                                         <div id="new-deaths"> Today New Deaths: ${data.response[0].deaths.new}</div>
-                                         <div id="day"> Day: ${data.response[0].day}</div><br>
-                                         <div id="time"> Time: ${data.response[0].time}</div> `
-        showInfo.appendChild(displayStadistics)
-    })}}
+        let displayStatistics = document.createElement("div")
+        displayStatistics.innerHTML = `
+        <div class='api-info'>
+            <h1 id='country-name'>Covid-19 stats from ${document.getElementById('search-input').value.toUpperCase()}</h1>
+            <div class='gap'> ${'Date:'.bold()} ${data.response[0].day}</div>
+            <div class='gap'>${'Total Cases:'.bold()} ${String(data.response[0].cases.total)}</div>
+            <div class='gap'>${'Today Cases:'.bold()} ${String(data.response[0].cases.new)} </div>
+            <div class='gap'>${'Total Deaths:'.bold()} ${String(data.response[0].deaths.total)}</div>
+            <div class='gap'>${'Today Deaths:'.bold()} ${String(data.response[0].deaths.new)}</div>
+        </div>
+        `
+        showInfo.appendChild(displayStatistics)
+})}}
