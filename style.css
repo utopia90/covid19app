@@ -43,7 +43,7 @@
     background-color: rgb(46, 182, 0);
 }
 
-.countryClass {
+#search-info-div {
     margin-top: 70px;
     font-size: 25px;
 }
@@ -58,7 +58,7 @@
      background-color: white;
  }
 
- #searchBtn {
+ #search-btn, #go-btn, #restart-test, #search-restart, #submit-btn {
     width: 100px;
     height: 35px;
     font-size: 18px;
@@ -66,9 +66,10 @@
     color: white;
     border-radius: 35px;
     cursor: pointer;
+    margin-top: 20px;
  }
 
- #searchBtn:hover {
+ #searchBtn:hover, #go-btn:hover {
     background-color: rgb(149, 0, 255);
  }
 
@@ -82,9 +83,20 @@
  }
 
  .gap {
-     margin-top: 5px;
+     margin-top: 15px;
  }
 
  .selected {
     background-color: rgb(46, 182, 0);
-}
+ }
+
+ #symptoms-title {
+     margin-top: 50px;
+     margin-bottom: 30px;
+     font-size: 30px;
+ }
+
+ #questions {
+     margin-bottom: 20px;
+     font-size: 18px;
+ }

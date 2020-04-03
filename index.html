@@ -10,12 +10,81 @@
 <body>
     <h1 id='title'>THE C<img id='virus-img' src="./assets/virus.png">VID-19 APP</h1>
     <div id='buttons'>
-        <button id ="statistics" class='btn'>Stats</button>
-        <button id="test" class='btn'>Test Yourself</button>
-        <button id="synptoms" class='btn'>Symptoms</button>
-        <button id ="usefulcontacts" class='btn'>Contact Numbers</button>
+        <button value='stats' id ="stats" class='btn selected'>Stats</button>
+        <button value="test" id="test" class='btn'>Test Yourself</button>
+        <button value="symptoms" id="symptoms" class='btn'>Symptoms</button>
+        <button value='useful-contacts' id ="useful-contacts" class='btn'>Contact Numbers</button>
     </div>
-    <div id='description'></div>
-    <div id="show-info" class="hide"></div>
+<!--STATS-->
+    <div id="search-info-div">
+        <input id ="search-input" type="text" placeholder='Country Name...'>
+        <button id="search-btn">Search</button>
+        <div id='show-info'></div>
+    </div>
+<!--TEST-->
+    <div id='test-yourself' class='hide'>
+        <h3 id='symptoms-title'>Test your symptoms</h3>
+        <button id='go-btn'>Go</button>
+        <div id='questions' class='hide'>
+            <form id='first-q' class='gap'>
+                <p id='first-q'>Do you have a sudden shortness of breath
+                    (in the absence of any other pathology that justifies this symptom)?</p>
+                <label for='yes'>Yes</label>
+                <input type="radio" name='yesno' class='label-test' value='yes'>
+                <label for='no'>No</label>
+                <input type="radio" name='yesno' class='label-test' value='no'>
+            </form>
+            
+            <form id='second-q' class='gap'>
+                <p id='second-q'>Do you have fever? (+ 37.7ºC)</p>
+                <label for='yes'>Yes</label>
+                <input type="radio" name='yesno' class='label-test' value='yes'>
+                <label for='no'>No</label>
+                <input type="radio" name='yesno' class='label-test' value='no'>
+            </form>
+            
+            <form id='third-q' class='gap'>
+                <p id='third-q'>Do you have a persistent dry cough?</p>
+                <label for='yes'>Yes</label>
+                <input type="radio" name='yesno' class='label-test' value='yes'>
+                <label for='no'>No</label>
+                <input type="radio" name='yesno' class='label-test' value='no'>
+            </form>
+            
+            <form id='fourth-q' class='gap'>
+                <p id='fourth-q'>Have you had close contact with any confirmed positive patient?</p>
+                <label for='yes'>Yes</label>
+                <input type="radio" name='yesno' class='label-test' value='yes'>
+                <label for='no'>No</label>
+                <input type="radio" name='yesno' class='label-test' value='no'>
+            </form>
+            
+            <form id='fifth-q' class='gap'>
+                <p id='fifth-q'>Do you have mucus in your nose?</p>
+                <label for='yes'>Yes</label>
+                <input type="radio" name='yesno' class='label-test' value='yes'>
+                <label for='no'>No</label>
+                <input type="radio" name='yesno' class='label-test' value='no'>
+            </form>
+            
+            <form id='sixth-q' class='gap'>
+                <p id='sixth-q'>Do you have muscle pain?</p>
+                <label for='yes'>Yes</label>
+                <input type="radio" name='yesno' class='label-test' value='yes'>
+                <label for='no'>No</label>
+                <input type="radio" name='yesno' class='label-test' value='no'>
+            </form>
+            
+            <form id='seventh-q' class='gap'>
+                <p id='seventh-q'>Do you have gastrointestinal symptoms?</p>
+                <label for='yes'>Yes</label>
+                <input type="radio" name='yesno' class='label-test' value='yes'>
+                <label for='no'>No</label>
+                <input type="radio" name='yesno' class='label-test' value='no'>
+            </form>
+        </div>
+        <button id='submit-btn' class='hide'>Submit</button>
+        <div id='results'></div>
+    </div>
 </body>
 </html>
