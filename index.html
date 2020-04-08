@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Oswald:wght@469&display=swap" rel="stylesheet">
     <script defer type="text/javascript" src="app.js"></script>
     <script
       src="https://kit.fontawesome.com/658ee16d86.js"
@@ -21,7 +22,9 @@
     </div>
 <!--STATS-->
     <div id="search-stats-div">
-        <p id='instruction'>Type a valid country to see stats</p>
+        <div>
+            <p id='instruction'>Type a valid country to see stats</p>
+        </div>
         <div id="search-input-div">
             <input id ="search-input" type="text" placeholder='Country Name...'>
         </div>
@@ -30,76 +33,59 @@
         <div id='show-info'></div>
     </div>
 <!--TEST-->
-    <div id='test-yourself' class='hide'>
-        <h3 id='symptoms-title'>Test your symptoms</h3>
-        <button id='go-btn'>Go</button>
-        <div id='questions' class='hide'>
-            <form id='first-q' class='gap'>
-                <p id='first-q'>Do you have a sudden shortness of breath
-                    (in the absence of any other pathology that justifies this symptom)?</p>
-                <label for='yes'>Yes</label>
-                <input type="radio" name='yesno' class='label-test' value='yes'>
-                <label for='no'>No</label>
-                <input type="radio" name='yesno' class='label-test' value='no'>
-            </form>
-            
-            <form id='second-q' class='gap'>
-                <p id='second-q'>Do you have fever? (+ 37.7ºC)</p>
-                <label for='yes'>Yes</label>
-                <input type="radio" name='yesno' class='label-test' value='yes'>
-                <label for='no'>No</label>
-                <input type="radio" name='yesno' class='label-test' value='no'>
-            </form>
-            
-            <form id='third-q' class='gap'>
-                <p id='third-q'>Do you have a persistent dry cough?</p>
-                <label for='yes'>Yes</label>
-                <input type="radio" name='yesno' class='label-test' value='yes'>
-                <label for='no'>No</label>
-                <input type="radio" name='yesno' class='label-test' value='no'>
-            </form>
-            
-            <form id='fourth-q' class='gap'>
-                <p id='fourth-q'>Have you had close contact with any confirmed positive patient?</p>
-                <label for='yes'>Yes</label>
-                <input type="radio" name='yesno' class='label-test' value='yes'>
-                <label for='no'>No</label>
-                <input type="radio" name='yesno' class='label-test' value='no'>
-            </form>
-            
-            <form id='fifth-q' class='gap'>
-                <p id='fifth-q'>Do you have mucus in your nose?</p>
-                <label for='yes'>Yes</label>
-                <input type="radio" name='yesno' class='label-test' value='yes'>
-                <label for='no'>No</label>
-                <input type="radio" name='yesno' class='label-test' value='no'>
-            </form>
-            
-            <form id='sixth-q' class='gap'>
-                <p id='sixth-q'>Do you have muscle pain?</p>
-                <label for='yes'>Yes</label>
-                <input type="radio" name='yesno' class='label-test' value='yes'>
-                <label for='no'>No</label>
-                <input type="radio" name='yesno' class='label-test' value='no'>
-            </form>
-            
-            <form id='seventh-q' class='gap'>
-                <p id='seventh-q'>Do you have gastrointestinal symptoms?</p>
-                <label for='yes'>Yes</label>
-                <input type="radio" name='yesno' class='label-test' value='yes'>
-                <label for='no'>No</label>
-                <input type="radio" name='yesno' class='label-test' value='no'>
-            </form>
+    <div id="tests-title" class="hide">
+        <div class='each-test'>
+            <div id="title1-1" >COVID-19 symptoms test</div> <p class='subtitle'>Test your symptoms (7 Q's)</p> <button id="goFirstTest" class='go-btn'>Go</button>
         </div>
-        <button id='submit-btn' class='hide'>Submit</button>
-        <div id='results'></div>
+        <div class='each-test'>
+            <div id="title2-2">COVID-19 prevention test</div><p class='subtitle'>Are you doing enough for prevention? (5 Q's)</p><button id="goSecondTest" class='go-btn'>Go</button>
+        </div> 
+    </div>
+    <div id='tests-and-btns-div' class='hide'>
+        <div id="first-test-div" class="hide test">
+            <div class="question" id="question1-1" class="hide">Do you have a sudden shortness of breath (in the absence of any other pathology that justifies this symptom)?
+            </div>
+            <div class="question" id="question1-2" class="hide"> Do you have fever? (+ 37.7ºC)
+            </div>
+            <div class="question" id="question1-3" class="hide">Do you have a persistent dry cough?
+            </div>
+            <div class="question" id="question1-4" class=hide>Have you had close contact with any confirmed positive patient?
+            </div>
+            <div class="question" id="question1-5" class="hide">Do you have mucus in your nose?
+            </div>
+            <div class="question" id="question1-6" class="hide"> Do you have muscle pain?
+            </div>
+            <div class="question" id="question1-7" class="hide"> Do you have gastrointestinal symptoms?
+            </div>
+        </div>
+        <div id="second-test-div" class="hide test">
+            <div class="question" id="question2-1" class="hide">Do you wash your hands frenquently, always before each meal or doing any type of activity outside?
+            </div>
+            <div class="question" id="question2-2" class="hide"> Do you wear gloves to go to the supermarket and throw them away or disinfect them when you get home?
+            </div>
+            <div class="question" id="question2-3" class="hide">Are you careful not to get close to people with COVID-19 symptoms?
+            </div>
+            <div class="question" id="question2-4" class=hide> Are you careful not to touch your eyes, nose and mouth frenquently?
+            </div>
+            <div class="question" id="question2-5" class="hide"> Are you at home as long as possible?
+            </div>
+        </div>
+        <div id="buttons-yesno" class="hide">
+            <button id="yesBtn" value="yes" class="yesBtn button">Yes</button>
+            <button id="noBtn" class="noBtn button">No</button>
+        </div>
+        <div id="showAnswers1stTest"></div>
+        <div id="showAnswers2ndTest"></div>
+        <button id="restartTestBtn" class="hide">Back</button>
     </div>
 <!--SYMPTOMS-->
 <div id='symptoms-div' class='hide'>
     <div id='symptoms-info'>
-        Reported illnesses have ranged from mild symptoms to severe illness
+        <i class="fas fa-arrow-alt-circle-right"></i>
+         Reported illnesses have ranged from mild <a>symptoms</a> to severe illness
         and death for confirmed coronavirus disease 2019 (COVID-19) cases.<br><br>
-        These symptoms may appear 2-14 days after exposure (based on the incubation period of MERS-CoV viruses). <br><br>
+        <i class="fas fa-arrow-alt-circle-right"></i>
+         These <a>symptoms</a> may appear 2-14 days after exposure (based on the incubation period of MERS-CoV viruses): <br><br>
         
         <p class='italics'> 
             -Fever<br>
@@ -108,8 +94,8 @@
             -Muscular pain<br>
             -Weakness<br><br>
         </p>
-            When to Seek Medical Attention:<br><br>
-            If you develop emergency warning signs for COVID-19 get medical attention immediately. Emergency warning signs include:<br><br>
+        <i class="fas fa-arrow-alt-circle-right"></i>
+            If you develop emergency <a>warning</a> signs for COVID-19 you should get medical attention immediately. Emergency <a>warning</a> signs include:<br><br>
         <p class='italics'>
             -Trouble breathing<br>
             -Persistent pain or pressure in the chest<br>
@@ -124,34 +110,34 @@
 <!--RESOURCES-->    
 <div id='resources-div' class='hide'>
     <div id='resources-info'>
-        <div id="staff-support"><b>Support for staff and volunteers during the coronavirus pandemic.</b></div><br>
+        <div id="staff-support" class='resources-title'><b>Support for staff and volunteers during the coronavirus pandemic.</b></div><br>
 
         <i class="fas fa-arrow-alt-circle-right"></i> <a target="_blank" href="https://pscentre.org/wp-content/uploads/2020/02/MHPSS-in-nCoV-2020_ENG-1.pdf">IFRC Mental Health and Psychosocial Support </a>for Staff, Volunteers and Communities in an Outbreak of Novel Coronavirus.<br>
-        <i class="fas fa-arrow-alt-circle-right"></i><a target="_blank" href="https://interagencystandingcommittee.org/iasc-reference-group-mental-health-and-psychosocial-support-emergency-settings/briefing-note-about">IASC Briefing Note about mental health and psychosocial support aspects of COVID-19 </a>(in English, Arabic and Chinese).<br>
+        <i class="fas fa-arrow-alt-circle-right"></i><a target="_blank" href="https://interagencystandingcommittee.org/iasc-reference-group-mental-health-and-psychosocial-support-emergency-settings/briefing-note-about">IASC Briefing Note about mental health and psychosocial support aspects of COVID-19 </a>(in English, Arabic and Chinese).<br><br>
      
-        <div id="stress-support">Coping with stress during the outbreak.</div><br>
+        <div id="stress-support" class='resources-title'><b>Coping with stress during the outbreak.</b></div><br>
         <i class="fas fa-arrow-alt-circle-right"></i>The WHO has released two helpful resources for coping with stress regarding COVID-19:<a target="_blank" href="https://www.who.int/docs/default-source/coronaviruse/coping-with-stress.pdf?sfvrsn=9845bc3a_2"> one for adults </a>and another <a target="_blank" href="https://www.who.int/docs/default-source/coronaviruse/helping-children-cope-with-stress-print.pdf?sfvrsn=f3a063ff_2"> for children.</a><br>
         <i class="fas fa-arrow-alt-circle-right"></i>UNICEF has published <a target="_blank" href="https://www.unicef.org/coronavirus/6-ways-parents-can-support-their-kids-through-coronavirus-covid-19">six ways parents can support their kids</a> through coronavirus.<br>
-        <i class="fas fa-arrow-alt-circle-right"></i>UNICEF has published <div target="_blank" href="https://www.unicef.org/coronavirus/how-teenagers-can-protect-their-mental-health-during-coronavirus-covid-19"> six strategies for young people to protect their mental health </a> during coronavirus.<br><br>
+        <i class="fas fa-arrow-alt-circle-right"></i>UNICEF has published <a target="_blank" href="https://www.unicef.org/coronavirus/how-teenagers-can-protect-their-mental-health-during-coronavirus-covid-19"> six strategies for young people to protect their mental health </a> during coronavirus.<br><br>
      
-        <div id="children-info"><b>Talking to children about COVID-19 – for parents.</b></div><br>
+        <div id="children-info" class='resources-title'><b>Talking to children about COVID-19 – for parents.</b></div><br>
 
         <i class="fas fa-arrow-alt-circle-right"></i><a target="_blank" href="https://www.covid19parenting.com/">COVIDparenting.com </a>is a great initiative from the World Health Organisation, UNICEF, the Global Partnership to End Violence Against Children, the Internet of Good Things, USAID and Centers for Disease Control & Prevention.
         It offers a range of 24/7 parenting advice and tips, in a wide range of different languages.<br>
         <i class="fas fa-arrow-alt-circle-right"></i>Use <a target="_blank" href="https://www.unicef.org/coronavirus/how-talk-your-child-about-coronavirus-covid-19">this helpful guide </a>, which was developed by UNICEF, to speak to children about the virus and its current and potential impact.<br>
         <i class="fas fa-arrow-alt-circle-right"></i><a target="_blank" href="https://www.sos-childrensvillages.org/news/how-to-speak-with-children-about-coronavirus">SOS Children’s Villages </a>has also produced advice for parents on how to speak to children about coronavirus.<br>
 
-        <br><div id="school-closures"><b>School closures – accessing distance learning solutions.</b></div><br>
+        <br><div id="school-closures" class='resources-title'><b>School closures – accessing distance learning solutions.</b></div><br>
 
         <i class="fas fa-arrow-alt-circle-right"></i>UNESCO has a list of <a target="_blank" href="https://en.unesco.org/covid19/educationresponse/solutions">up-to-date educational applications and platforms </a> to facilitate student learning at home or away from school.<br>
 
-        <br><div id="learning"><b>Entretainment & Learning Resources </b></div><br>
+        <br><div id="learning" class='resources-title'><b>Entretainment & Learning Resources </b></div><br>
         <i class="fas fa-arrow-alt-circle-right"></i><a target="_blank" href="https://www.youtube.com/learning"> Youtube Learning Lists</a><br>
-        <i class="fas fa-arrow-alt-circle-right"></i><a target="_blank" href="https://artsandculture.google.com/?hl=es">Google Arts & Culture Open Collections </a><br>
+        <i class="fas fa-arrow-alt-circle-right"></i><a target="_blank" href="https://artsandculture.google.com/?hl=es">Google Arts & Culture Open Collections </a><br><br><br>
 
-        <div id="helpline"> If you’re looking for any COVID-19 or self-isolation health advise and information, please call the dedicated helpline 0800 358 5453, (or for international SIMs +64 9 358 5453). <br>
+        <div id="helpline"> If you’re looking for any COVID-19 or self-isolation health advise and information, please call the dedicated helpline 0800 358 5453, (or for international SIMs +64 9 358 5453). <br><br>
         If you’re feeling anxious or uncertain about Coronavirus, talk with our friendly telephone counsellors on 0800 LIFELINE (0800 543 354) or text ‘HELP’ to 4357. <br></div>
-    </div>
+    </a>
 </div>
 </body>
 </html>
