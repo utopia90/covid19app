@@ -12,14 +12,16 @@
 }
 
 body {
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.1);
     background-image: url(./assets/virus-bg.jpg);
 }
 
 #title {
     margin-top: 10vh;
-    font-size: 40px;
+    font-size: 42px;
     font-family: 'Do Hyeon';
+    color: rgb(104, 168, 172);
+    text-shadow: 2px 2px 0px #474747;
 }
 
 #virus-img {
@@ -39,7 +41,7 @@ body {
     background-color: pink;
     font-size: 13px;
     font-weight: 500;
-    box-shadow: 1px 3px #919191;
+    box-shadow: 1px 2px #919191;
 }
 
 #instruction {
@@ -66,9 +68,9 @@ body {
     height: 28px;
     font-size: 12px;
     background-color: rgb(153, 215, 218);
-    border-radius: 20px;
+    border-radius: 7px;
     margin-top: 10px;
-    box-shadow: 1px 3px #919191;
+    box-shadow: 1px 2px #919191;
     margin-bottom: 20px;
  }
 
@@ -76,21 +78,21 @@ body {
     width: 55px;
     height: 27px;
     font-size: 12px;
-    border-radius: 5px;
+    border-radius: 7px;
     background-color: rgb(153, 215, 218);
     margin-top: 15px;
-    box-shadow: 1px 3px #919191;
+    box-shadow: 1px 2px #919191;
     margin-bottom: 20px;
  }
 
  .button {
     width: 52px;
     height: 32px;
-    border-radius: 8px;
+    border-radius: 7px;
     font-size: 15px;
     background-color: rgb(153, 215, 218);
     margin: 15px 5px 2px 5px;
-    box-shadow: 1px 3px #919191;
+    box-shadow: 1px 2px #919191;
  }
 
  .api-info {
@@ -232,4 +234,8 @@ a {
 
 #resources-div, #resources-info {
     margin-bottom: 30px;
+}
+
+#error-msg {
+    padding-bottom: 25px;
 }

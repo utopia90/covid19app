@@ -23,26 +23,35 @@ const allBtns = Array.from(document.getElementsByClassName("button"));
 const testsTitle = document.getElementById("tests-title");
 const testsAndBtnsDiv = document.getElementById('tests-and-btns-div');
 const restartTestBtn = document.getElementById('restartTestBtn');
+const appTitle = document.getElementById('title');
 let counter = 0;
 let question = 1;
 let test = 0;
 
     searchBtn.addEventListener('click', () => {
-        if (searchInput.value.length > 0) {
-            searchInput.classList.add('hide');
-            searchBtn.classList.add('hide');
-            displayData();
-            instruction.classList.add('hide')
-         } else {
-             showInfo.innerHTML = `
-             <p id='error-msg'>You haven't typed any valid country. Please try again.</p>
-             `
-             searchInput.style.border = '1px solid red';
-         }
+      displayData();
     })
     searchInput.addEventListener('click', () => {
         searchInput.style.border = '1px solid rgb(165, 165, 165)';
         showInfo.innerHTML = ``;
+    })
+
+    appTitle.addEventListener('click', () => {
+      searchInput.value = '';
+        searchInput.classList.remove('hide');
+        searchBtn.classList.remove('hide');
+        searchStatsDiv.classList.remove('hide');
+        testsTitle.classList.add('hide');
+        statsBtn.classList.add('selected');
+        testBtn.classList.remove('selected');
+        symptomsBtn.classList.remove('selected');
+        resourcesBtn.classList.remove('selected');
+        showInfo.innerHTML = ``;
+        symptomsDiv.classList.add('hide');
+        resourcesDiv.classList.add('hide');
+        searchInput.style.border = '1px solid rgb(165, 165, 165)';
+        testsAndBtnsDiv.classList.add('hide');
+        instruction.classList.remove('hide');
     })
 
 function displayData() {
@@ -53,29 +62,42 @@ function displayData() {
     "x-rapidapi-key": "50ecc69f3bmshd318dabf46ee406p1f08e8jsn0caca47eac27"
     }
 })
-    .then(res => res.json())
-    .then(data => {
-        showInfo.innerHTML = `
-        <h1 id='country-name'>Covid-19 stats from ${searchInput.value.toUpperCase()}</h1>
-        <div class='gap'> ${'Date:'.bold()} ${data.response[0].day}</div>
-        <div class='gap'>${'Total Cases:'.bold()} ${String(data.response[0].cases.total)}</div>
-        <div class='gap'>${'Today Cases:'.bold()} ${String(data.response[0].cases.new)} </div>
-        <div class='gap'>${'Total Deaths:'.bold()} ${String(data.response[0].deaths.total)}</div>
-        <div class='gap'>${'Today Deaths:'.bold()} ${String(data.response[0].deaths.new)}</div>
-        <button id='search-restart'>Restart</button>
-        `
-        let restartSearch = document.getElementById('search-restart');
-        restartSearch.addEventListener('click', () => {
-            searchInput.value = '';
-            searchInput.classList.remove('hide');
-            searchBtn.classList.remove('hide');
-            restartSearch.classList.add('hide');
-            showInfo.innerHTML = ``;
-            instruction.classList.remove('hide');
-            searchInput.style.border = '1px solid rgb(165, 165, 165)';
-        })
-    })
-}
+.then(res => res.json()
+.then(data => {
+  if (data.results > 0) {
+    searchInput.classList.add('hide');
+    searchBtn.classList.add('hide');
+    instruction.classList.add('hide');
+  if (data.response[0].deaths.new = 'null') {
+    data.response[0].deaths.new = 0;
+  }
+  console.log(data.response[0].deaths.new)
+    showInfo.innerHTML = `
+    <h1 id='country-name'>Covid-19 stats from ${searchInput.value.toUpperCase()}</h1>
+    <div class='gap'> ${'Date:'.bold()} ${data.response[0].day}</div>
+    <div class='gap'>${'Total Cases:'.bold()} ${String(data.response[0].cases.total)}</div>
+    <div class='gap'>${'Today Cases:'.bold()} ${String(data.response[0].cases.new)} </div>
+    <div class='gap'>${'Total Deaths:'.bold()} ${String(data.response[0].deaths.total)}</div>
+    <div class='gap'>${'Today Deaths:'.bold()} ${String(data.response[0].deaths.new)}</div>
+    <button id='search-restart'>Restart</button>
+    `
+  } else {
+    showInfo.innerHTML = `
+    <p id='error-msg'>You haven't typed any valid country. Please try again.</p>
+    `
+    searchInput.style.border = '1px solid red';
+  }
+  let restartSearch = document.getElementById('search-restart');
+  restartSearch.addEventListener('click', () => {
+    searchInput.value = '';
+    searchInput.classList.remove('hide');
+    searchBtn.classList.remove('hide');
+    restartSearch.classList.add('hide');
+    showInfo.innerHTML = ``;
+    instruction.classList.remove('hide');
+    searchInput.style.border = '1px solid rgb(165, 165, 165)';
+  })
+}))}
 
 buttons.forEach(btn => btn.addEventListener('click', (e) => {
     if (e.target.value === 'stats') {
@@ -141,6 +163,7 @@ buttons.forEach(btn => btn.addEventListener('click', (e) => {
 function restartCounter() {
   counter = 0;
 }
+
 function showTest() {
   testsTitle.classList.remove("hide");
 }
