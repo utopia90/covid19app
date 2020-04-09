@@ -55,23 +55,22 @@ let test = 0;
     })
 
 function displayData() {
-    fetch(`https://covid-193.p.rapidapi.com/statistics?country=${searchInput.value}`, {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "covid-193.p.rapidapi.com",
-    "x-rapidapi-key": "50ecc69f3bmshd318dabf46ee406p1f08e8jsn0caca47eac27"
-    }
+  fetch(`https://covid-193.p.rapidapi.com/statistics?country=${searchInput.value}`, {
+    "method": "GET",
+    "headers": {
+      "x-rapidapi-host": "covid-193.p.rapidapi.com",
+      "x-rapidapi-key": "50ecc69f3bmshd318dabf46ee406p1f08e8jsn0caca47eac27"
+  }
 })
 .then(res => res.json()
 .then(data => {
+  if (data.response[0].deaths.new === null) {
+    data.response[0].deaths.new = 0;
+  }
   if (data.results > 0) {
     searchInput.classList.add('hide');
     searchBtn.classList.add('hide');
     instruction.classList.add('hide');
-  if (data.response[0].deaths.new = 'null') {
-    data.response[0].deaths.new = 0;
-  }
-  console.log(data.response[0].deaths.new)
     showInfo.innerHTML = `
     <h1 id='country-name'>Covid-19 stats from ${searchInput.value.toUpperCase()}</h1>
     <div class='gap'> ${'Date:'.bold()} ${data.response[0].day}</div>
